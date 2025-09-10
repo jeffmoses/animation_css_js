@@ -1,0 +1,136 @@
+/* Box with transition effects on background and border radius */
+.transition-box{
+    background-color: lime;
+    border-radius: 6px;
+    cursor: pointer;
+    line-height: 95px;
+    height: 95px;
+    text-align: center;
+    transition-property: background-color, border-radius;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    width: 95px;
+}
+
+/* Transition-box hover state: changes color and shape */
+.transition-box:hover {
+    background-color: rgb(207, 15, 56);
+    border-radius: 50%;
+}
+
+/* Button with transition and shadow effects */
+.transition-button{
+    border:0;
+    border-radius: 4px;
+    background: lightblue;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 10px 0 cyan;
+    margin: 0;
+    outline: 0;
+    padding: 12px 20px;
+    transition: all 0.2s linear;
+}
+
+/* Button active state: pressed effect */
+.transition-button:active{
+    box-shadow: 0 5px 0 turquoise;
+    transform: translateY(3px);
+}
+
+/* Container for 3D card flip effect */
+.card-container{
+    height: 150px;
+    perspective: 600;
+    width: 150px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Card with 3D transform and transition */
+.card {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out
+}
+
+/* Card hover: flips the card */
+.card:hover{
+    transform: rotateY(180deg);
+}
+
+/* Front face of the card */
+.card .front{
+    backface-visibility: hidden;
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+/* Back face of the card */
+.card .back{
+   background: lightgray;
+   color: black;
+   line-height: 150px;
+   text-align: center;
+    transform: rotateY(180deg);
+}
+
+/* Images: fixed width, auto height */
+img {
+    width: 150px;
+    height: auto;
+}
+
+/* Heart shape with animation */
+.heart{
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    transform: rotate(45deg);
+    animation: heartbeat 1s infinite;
+}
+
+/* Heart shape: left and top circles */
+.heart::before,
+.heart::after{
+    content: "";
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+/* Left circle of heart */
+.heart::before{ left: -50px; }
+/* Top circle of heart */
+.heart::after{ top: -50px; }
+
+/* Heartbeat animation keyframes */
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1) rotate(45deg); }
+    50% { transform: scale(1.3) rotate(45deg); }
+}
+
+/* Ball with horizontal movement animation (paused by default) */
+.ball {
+    width: 50px;
+    height: 50px;
+    background: chartreuse;
+    border-radius: 50%;
+    position: relative;
+    animation: move 3s infinite alternate ease-in-out;
+    animation-play-state: paused;
+}
+
+/* Ball movement keyframes */
+@keyframes move {
+    from { transform: translateX(0); }
+    to { transform: translateX(900px);  } 
+}
